@@ -3,16 +3,8 @@ import data from "../data.json";
 import Comment from "./Comment";
 
 const Comments = () => {
-  console.log(data.comments);
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
+    <Box>
       {data.comments.map(comment => {
         return (
           <Comment

@@ -8,24 +8,8 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import ReplyIcon from "@mui/icons-material/Reply";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import styled from "@emotion/styled";
-
-const ScoreComp = styled(Stack)(({ theme }) =>
-  theme.unstable_sx({
-    alignItems: "center",
-    justifyContent: "space-between",
-    bgcolor: "background.default",
-    padding: "12px 5px",
-    borderRadius: "10px",
-    width: "40px",
-    height: "100px",
-    color: "primary.light",
-    marginRight: "24px",
-  })
-);
+import ScoreComp from "./ScoreComp";
+import ReplyComp from "./ReplyComp";
 
 const Comment = ({ content, createdAt, score, user, replies }) => {
   return (
@@ -41,16 +25,7 @@ const Comment = ({ content, createdAt, score, user, replies }) => {
         direction='row'
         alignItems='center'
       >
-        <ScoreComp>
-          <AddIcon />
-          <Typography
-            color='primary'
-            fontWeight='500'
-          >
-            {score}
-          </Typography>
-          <RemoveIcon />
-        </ScoreComp>
+        <ScoreComp initScore={score} />
         <Box>
           <Stack
             direction='row'
@@ -77,15 +52,7 @@ const Comment = ({ content, createdAt, score, user, replies }) => {
                 </Typography>
               }
             />
-            <Stack
-              direction='row'
-              fontWeight='500'
-              color='primary.main'
-              alignItems='center'
-            >
-              <ReplyIcon />
-              Reply
-            </Stack>
+            <ReplyComp />
           </Stack>
           <CardContent
             sx={{ paddingBottom: "0px !important", color: "text.primary" }}
